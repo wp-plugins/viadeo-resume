@@ -27,7 +27,7 @@ function viadeo_resume_install() {
 	$wpdb->query($insert);
 }
 
-add_action('activate_viadeo_resume/viadeo_resume.php', 'viadeo_resume_install');
+add_action('activate_viadeo-resume/viadeo_resume.php', 'viadeo_resume_install');
 
 function viadeo_resume_uninstall() {
 
@@ -38,7 +38,7 @@ function viadeo_resume_uninstall() {
 	$wpdb->query($structure);
 }
 
-add_action('deactivate_viadeo_resume/viadeo_resume.php', 'viadeo_resume_uninstall');
+add_action('deactivate_viadeo-resume/viadeo_resume.php', 'viadeo_resume_uninstall');
 
 // == ADMIN OPTIONS PAGE ========================================================================
 
