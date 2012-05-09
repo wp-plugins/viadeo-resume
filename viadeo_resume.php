@@ -239,7 +239,7 @@ function viadeo_resume_contact_list( $wp ) {
 
 			$limit = 100;
 			$req_friends = $me->connection('contacts')->user_detail('full')->limit($limit);
-			$friends = $req_friends(); 
+			$friends = $req_friends->execute(); 
 
 			$nb = 1; $maxPages = $friends->count / $limit;
 
