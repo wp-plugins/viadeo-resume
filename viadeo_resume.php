@@ -280,12 +280,17 @@ function viadeo_resume_contact_list( $wp ) {
 
 // == ADMIN ADD SHORTCODE ========================================================================
 
-function viadeo_resume_shortcode( $atts ) {
+function viadeo_resume_shortcode( $atts, $content ) {
 	extract( shortcode_atts( array(
 		'profile' => 'me'
 	), $atts ) );
 
-	return viadeo_resume_show_profile($profile);
+	ob_start();
+	viadeo_resume_show_profile($profile);
+	$output_string = ob_get_contents();
+	ob_end_clean();
+
+	return $output_string;
 }
 add_shortcode( 'viadeo-resume', 'viadeo_resume_shortcode' );
 
