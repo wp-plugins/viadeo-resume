@@ -4,7 +4,7 @@ Donate link: http://www.magetys.com
 Tags: viadeo, resume, cv, curriculum vitae
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,7 +66,7 @@ Feel free to contact us through our [blog](http://www.magetys.com).
 
 == Changelog ==
 
-= 1.0.1 =
+= 1.0.3 =
 
 * Notify user if Curl is running or not on plugin configuration page
 
