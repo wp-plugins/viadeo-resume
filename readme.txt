@@ -53,6 +53,12 @@ On the Viadeo Resume administration plugin page, you need to set your personal V
 
 Now, you can get your personal Access Token
 
+== Screenshots ==
+
+1. Plugin configuration page
+2. Just write [viadeo-resume] on a post
+3. Generated resume sample
+
 == Frequently Asked Questions ==
 
 = There are some dependencies to install before using this plugin ? =
