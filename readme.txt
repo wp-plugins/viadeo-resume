@@ -66,6 +66,10 @@ Feel free to contact us through our [blog](http://www.magetys.com).
 
 == Changelog ==
 
+= 1.0.1 =
+
+* Notify user if Curl is running or not on plugin configuration page
+
 = 1.0 =
 
 * First public release

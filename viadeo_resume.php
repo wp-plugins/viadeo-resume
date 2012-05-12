@@ -77,6 +77,23 @@ function viadeo_resume_admin_connected() {
 	<div class="wrap">
 	<div id="icon-options-general" class="icon32"><br></div>
 	<h2>Viadeo Resume</h2>
+	<h3 class="title">Server configuration</h3>
+	<p>
+	<?php 
+	$plugin_url = esc_url( VIADEO_RESUME_PLUGIN_URL );
+	if(is_curl_installed()) {
+	?>
+	<img src="<?php echo $plugin_url . '/circle_green.png' ?>" alt="OK" width="16" height="16" />
+	<?
+	} else {
+	?>
+	<img src="<?php echo $plugin_url . '/circle_red.png' ?>" alt="NOK" width="16" height="16" />
+	<?php
+	}
+	?>
+	Running Curl <a href="http://wordpress.org/extend/plugins/viadeo-resume/faq/">(?)</a>
+	</p>
+	
 	<?php
 
 	$decoLink = ViadeoHelper::getCurrentURL() . "?page=" . $_GET['page'] . "&deconnection=true";
@@ -88,7 +105,7 @@ function viadeo_resume_admin_connected() {
 		$me = $VD->get('/me')->execute(); 
 		$buttonText = "Disconnet from Viadeo";
 		?>
-
+		<h3 class="title">Plugin configuration</h3>
 		<p>You are connected to <a href="http://www.viadeo.com">Viadeo</a> with the account of <?php echo $me->name; ?>.</p>
 		<p>Now you can insert your resume on every page or post with the short code <b>[viadeo-resume]</b></p>
 		<p>You can also insert the resume of your <?php echo $me->contact_count; ?> Viadeo contacts with the short code <b>[viadeo-resume profile="<i>nickname</i>"]</b>.<br />Usually Viadeo nicknames are formatted like this : <i>firstname.lastname</i>.<br />When you write a post, you can generate the short code if you click on "add a Viadeo Resume" button.</p>
@@ -118,6 +135,9 @@ function viadeo_resume_admin_connected() {
 
 function viadeo_resume_menu() {
 
+
+
+
 	global $VD;
 	global $wpdb;
 
@@ -145,6 +165,23 @@ function viadeo_resume_menu() {
 			<div class="wrap">
 			<div id="icon-options-general" class="icon32"><br></div>
 			<h2>Viadeo Resume</h2>
+			<h3 class="title">Server configuration</h3>
+			<p>
+			<?php 
+			$plugin_url = esc_url( VIADEO_RESUME_PLUGIN_URL );
+			if(is_curl_installed()) {
+			?>
+			<img src="<?php echo $plugin_url . '/circle_green.png' ?>" alt="OK" width="16" height="16" />
+			<?
+			} else {
+			?>
+			<img src="<?php echo $plugin_url . '/circle_red.png' ?>" alt="NOK" width="16" height="16" />
+			<?php
+			}
+			?>
+			Running Curl <a href="http://wordpress.org/extend/plugins/viadeo-resume/faq/">(?)</a>
+			</p>
+			<h3 class="title">Plugin configuration</h3>
 			<form method="post" action="<?php echo $postUrl; ?>">
 			<p>Just set your personal Viadeo Access Token and click on the "Connect to Viadeo" button to start using Viadeo Resume Plugin.</p>
 			<table class="form-table">
@@ -190,6 +227,10 @@ function viadeo_resume_admin_actions() {
 }
  
 add_action('admin_menu', 'viadeo_resume_admin_actions');
+
+function is_curl_installed() {
+	return in_array('curl', get_loaded_extensions());
+}
 
 // == ADMIN MESSAGE ===============================================================================
 
