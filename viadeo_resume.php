@@ -4,7 +4,7 @@ Plugin Name: Viadeo Resume
 Plugin URI: http://www.magetys.com
 Description: Show your resume or your contacts' resumes generated with professional social network Viadeo profiles (http://www.viadeo.com)
 Author: Magetys
-Version: 1.0.3
+Version: 1.0
 Author URI: http://www.magetys.com
 */
 
@@ -45,6 +45,7 @@ add_action('deactivate_viadeo-resume/viadeo_resume.php', 'viadeo_resume_uninstal
 include('viadeoapi.inc');
 
 $VD = new ViadeoAPI();
+$VD->setCurlOption(CURLOPT_SSL_VERIFYPEER, FALSE);
 
 if(isset($_GET['page'])) {
 	$VD->setRedirectURI(ViadeoHelper::getCurrentURL() . "?page=" . $_GET['page']);
@@ -102,6 +103,7 @@ function viadeo_resume_admin_connected() {
 	try {
 
 		$VD = new ViadeoAPI(viadeo_resume_access_token());
+		$VD->setCurlOption(CURLOPT_SSL_VERIFYPEER, FALSE);
 		$me = $VD->get('/me')->execute(); 
 		$buttonText = "Disconnet from Viadeo";
 		?>
@@ -270,6 +272,7 @@ function viadeo_resume_contact_list( $wp ) {
 		try {
 
 			$VD = new ViadeoAPI(viadeo_resume_access_token());
+			$VD->setCurlOption(CURLOPT_SSL_VERIFYPEER, FALSE);
 
 			$me = $VD->get("/me")->execute();
 
@@ -335,7 +338,7 @@ function viadeo_resume_shortcode( $atts, $content ) {
 }
 add_shortcode( 'viadeo-resume', 'viadeo_resume_shortcode' );
 
-// == SHOW PROFILE ===============================================================================
+// == SHOW PROFILE ===============================================================================²
 
 function viadeo_resume_add_my_stylesheet() {
 	wp_register_style( 'viadeo_resume-style', plugins_url('viadeo_resume.css', __FILE__) );
@@ -350,6 +353,8 @@ function viadeo_resume_show_profile($memberId) {
 	try {
 
 		$VD = new ViadeoAPI(viadeo_resume_access_token());
+		$VD->setCurlOption(CURLOPT_SSL_VERIFYPEER, FALSE);
+
 		$me = $VD->get("/" . $memberId)->execute();  
 
 	?>
