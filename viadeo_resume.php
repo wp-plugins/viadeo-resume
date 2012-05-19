@@ -4,7 +4,7 @@ Plugin Name: Viadeo Resume
 Plugin URI: http://www.magetys.com
 Description: Show your resume or your contacts' resumes generated with professional social network Viadeo profiles (http://www.viadeo.com)
 Author: Magetys
-Version: 1.0
+Version: 1.0.4
 Author URI: http://www.magetys.com
 */
 

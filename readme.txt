@@ -3,8 +3,8 @@ Contributors: Magetys
 Donate link: http://www.magetys.com
 Tags: viadeo, resume, cv, curriculum vitae
 Requires at least: 3.0
-Tested up to: 3.3.1
-Stable tag: 1.0.3
+Tested up to: 3.3.2
+Stable tag: 1.0.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,7 +63,7 @@ Now, you can get your personal Access Token
 
 = There are some dependencies to install before using this plugin ? =
 
-Yes, You'll need to install curl for PHP, to install it on a debian server :
+Yes, You'll need to install cURL for PHP, to install it on a Debian server :
 > sudo apt-get install curl libcurl3 libcurl3-dev php5-curl
 
 = I have some questions (need help, have an idea), how can I contact you? =
@@ -72,9 +72,13 @@ Feel free to contact us through our [blog](http://www.magetys.com).
 
 == Changelog ==
 
+= 1.0.4 =
+
+* Fix a bug with SSL on some versions of cURL
+
 = 1.0.3 =
 
-* Notify user if Curl is running or not on plugin configuration page
+* Notify user if cURL is running or not on plugin configuration page
 
 = 1.0 =
 
